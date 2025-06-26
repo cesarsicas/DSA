@@ -7,11 +7,11 @@ import org.junit.Test
 
 class DfsPathCounterTest {
 
-    lateinit var adjacentListDfs: AdjacentListDfs
+    lateinit var adjacentListDfs: AdjacentListDfsExercise
 
     @Before
     fun config(){
-        adjacentListDfs = AdjacentListDfs()
+        adjacentListDfs = AdjacentListDfsExercise()
     }
 
     @Test
