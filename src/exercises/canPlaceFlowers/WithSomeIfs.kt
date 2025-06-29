@@ -1,4 +1,4 @@
-package canPlaceFlowers
+package exercises.canPlaceFlowers
 
 fun main() {
     fun canPlaceFlowers(flowerbed: IntArray, n: Int): Boolean {

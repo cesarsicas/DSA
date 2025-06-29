@@ -1,4 +1,4 @@
-package TwoSum
+package exercises.TwoSum
 
 
 fun main() {

@@ -1,4 +1,4 @@
-package diff
+package exercises.diff
 
 fun main() {
 

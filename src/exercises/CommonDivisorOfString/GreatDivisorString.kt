@@ -1,4 +1,4 @@
-package CommonDivisorOfString
+package exercises.CommonDivisorOfString
 
 //Example 1:
 //
