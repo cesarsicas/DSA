@@ -68,6 +68,21 @@ private fun main() {
         (serchDefaulttree(root, -5)),
     )
     println(result2)
+
+    val result3 = listOf(
+        (findNodeDefaultTree(root, 10)?.value == 10),
+        (findNodeDefaultTree(root, 5)?.value == 5),
+        (findNodeDefaultTree(root, 15)?.value == 15),
+        (findNodeDefaultTree(root, 3)?.value == 3),
+        (findNodeDefaultTree(root, 7)?.value == 7),
+        (findNodeDefaultTree(root, 12)?.value == 12),
+        (findNodeDefaultTree(root, 18)?.value == 18),
+        (findNodeDefaultTree(root, 93)?.value == 93),
+        (findNodeDefaultTree(root, 0)?.value == 0),
+        (findNodeDefaultTree(root, -5)?.value == -5),
+    )
+    println(result3)
+
 }
 
 
@@ -90,7 +105,7 @@ private fun searchBinarySearch(node: BinaryTreeNode<Int>?, element: Int): Boolea
 }
 
 //can be used for trees that haven't search tree correct order
-fun serchDefaulttree(root: BinaryTreeNode<Int>?, value: Int): Boolean {
+private fun serchDefaulttree(root: BinaryTreeNode<Int>?, value: Int): Boolean {
     if (root == null) {
         return false
     }
@@ -108,4 +123,28 @@ fun serchDefaulttree(root: BinaryTreeNode<Int>?, value: Int): Boolean {
             }
         }
     }
+}
+
+private fun findNodeDefaultTree(root: BinaryTreeNode<Int>?, value: Int): BinaryTreeNode<Int>? {
+    if (root == null) {
+        return null
+    }
+
+    if (root.value == value) {
+        return root
+    } else {
+        val left = findNodeDefaultTree(root.left, value)
+
+        if (left != null) {
+            return left
+        } else {
+            val right = findNodeDefaultTree(root.right, value)
+            if (right != null) {
+                return right
+            } else {
+                return null
+            }
+        }
+    }
+
 }
