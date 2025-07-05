@@ -14,7 +14,7 @@ fun heapArrayToTreeRecursive(list:List<Int>): BinaryTreeNode<Int>? {
     return root
 }
 
-private fun createTreeRecursive(
+fun createTreeRecursive(
     currentNode: BinaryTreeNode<Int>?, // Renamed 'root' to 'currentNode' for clarity in recursion
     list: List<Int>,
     position: Int

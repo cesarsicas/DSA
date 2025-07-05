@@ -1,4 +1,4 @@
-private fun createTree(): BinaryTreeNode<Int> {
+fun createBinaryTree(): BinaryTreeNode<Int> {
     // 1. Create the nodes with Integer values
     val root = BinaryTreeNode(10)
 
@@ -36,56 +36,76 @@ private fun createTree(): BinaryTreeNode<Int> {
     return root
 }
 
-fun main() {
-    val root = createTree()
+private fun main() {
+    val root = createBinaryTree()
 
-    println(searchNodeTest(root, 10))
-    println(searchNodeTest(root, 5))
-    println(searchNodeTest(root, 15))
-    println(searchNodeTest(root, 3))
-    println(searchNodeTest(root, 7))
-    println(searchNodeTest(root, 12))
-    println(searchNodeTest(root, 18))
+    //for binary search tree
+    val result1 = listOf(
+        (searchBinarySearch(root, 10)),
+        (searchBinarySearch(root, 5)),
+        (searchBinarySearch(root, 15)),
+        (searchBinarySearch(root, 3)),
+        (searchBinarySearch(root, 7)),
+        (searchBinarySearch(root, 12)),
+        (searchBinarySearch(root, 18)),
+        (searchBinarySearch(root, 93)),
+        (searchBinarySearch(root, 0)),
+        (searchBinarySearch(root, -5)),
+    )
+    println(result1)
 
-    println(searchNodeTest(root, 93))
-    println(searchNodeTest(root, 0))
-    println(searchNodeTest(root, -5))
-
+    //for binary tree
+    val result2 = listOf(
+        (serchDefaulttree(root, 10)),
+        (serchDefaulttree(root, 5)),
+        (serchDefaulttree(root, 15)),
+        (serchDefaulttree(root, 3)),
+        (serchDefaulttree(root, 7)),
+        (serchDefaulttree(root, 12)),
+        (serchDefaulttree(root, 18)),
+        (serchDefaulttree(root, 93)),
+        (serchDefaulttree(root, 0)),
+        (serchDefaulttree(root, -5)),
+    )
+    println(result2)
 }
 
-private fun searchNodeTest(root: BinaryTreeNode<Int>?, value: Int): Boolean {
-   throw NotImplementedError("")
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-private fun searchElement(node: BinaryTreeNode<Int>?, element: Int): Boolean {
+private fun searchBinarySearch(node: BinaryTreeNode<Int>?, element: Int): Boolean {
 
     if (node == null) {
         return false
     }
 
     return if (element > node.value) {
-        searchElement(node.right, element)
+        searchBinarySearch(node.right, element)
     } else {
         if (element < node.value) {
-            searchElement(node.left, element)
+            searchBinarySearch(node.left, element)
         } else {
             true
         }
     }
 
+}
+
+//can be used for trees that haven't search tree correct order
+fun serchDefaulttree(root: BinaryTreeNode<Int>?, value: Int): Boolean {
+    if (root == null) {
+        return false
+    }
+
+    return if (root.value == value) {
+        true
+    } else {
+        if (serchDefaulttree(root.left, value)) {
+            true
+        } else {
+            if (serchDefaulttree(root.right, value)) {
+                true
+            } else {
+                false
+            }
+        }
+    }
 }
