@@ -15,11 +15,11 @@ class AdjacentListBfsTest{
         "F" to listOf() // Disconnected node
     )
 
-    private lateinit var adjacentListBfs: AdjancentListBfsExercise
+    private lateinit var adjacentListBfs: AdjacentListBfs
 
     @Before
     fun config(){
-        adjacentListBfs = AdjancentListBfsExercise()
+        adjacentListBfs = AdjacentListBfs()
     }
 
     @Test
