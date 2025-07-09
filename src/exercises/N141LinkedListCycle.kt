@@ -25,5 +25,27 @@ class N141LinkedListCycle{
         return false
 
     }
+
+    //a variation using do while
+    fun hasCycle2(head: ListNode?): Boolean {
+        var slow = head
+        var fast = head
+
+        // Handle empty list or single node case
+        if (head == null || head.next == null) {
+            return false
+        }
+
+        do {
+            slow = slow?.next
+            fast = fast?.next?.next
+
+            if (slow == fast) {
+                return true
+            }
+        } while (fast?.next != null)
+
+        return false
+    }
 }
 
